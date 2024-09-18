@@ -1,0 +1,28 @@
+@import './about-us/index';
+@import './buyTicket/index';
+@import './payment/index';
+@import './question/index';
+@import './form-search/index';
+
+.home {
+  padding: 0;
+
+  .container_home {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  @media (max-width: 992px) {
+    .container_home {
+      grid-template-columns: 1fr;
+      padding: 0;
+    }
+  }
+}
+
+@media (max-width: 815px) {
+  .home {
+    padding: 0 8px;
+  }
+}

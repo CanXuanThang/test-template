@@ -1,0 +1,21 @@
+---
+import { Image } from "astro:assets";
+import errorImage from "../../asset/images/errorImage.png";
+
+interface Props {
+  urlImage: string;
+  width: number;
+  height: number;
+  alt: string;
+}
+
+const { urlImage, width, height, alt } = Astro.props;
+---
+
+<Image
+  src={urlImage}
+  width={width}
+  height={height}
+  alt={`img-${alt}`}
+  onerror={`this.onerror=null;this.src='${errorImage.src}';`}
+/>

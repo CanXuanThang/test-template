@@ -1,0 +1,89 @@
+@mixin responsive($screen) {
+  @if map-has-key($map: $breakpoints, $key: $screen) {
+    $value: map-get(
+      $map: $breakpoints,
+      $key: $screen,
+    );
+    @media screen and (max-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "`{$screen}` isn't exist in breakpoints";
+  }
+}
+
+$breakpoints: (
+  "se": 400px,
+  "xs": 480px,
+  "sm": 576px,
+  "md": 768px,
+  "mdXL": 815px,
+  "lg": 992px,
+  "xl": 1200px,
+  "xxl": 1600px,
+);
+
+$color-primary: #143a83;
+$color-white: #fff;
+$color: #0b1e6f;
+$color-error: red;
+$color-black: #000;
+$bg-color-1: rgb(0, 149, 218);
+$bg-color-2: rgb(0, 91, 170);
+$color-btn: #ffc107;
+$color-border: #ccc;
+$color-validate: yellow;
+
+@import "./404.scss";
+@import "../../layouts/index";
+
+html {
+  font-family: system-ui, sans-serif;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box !important;
+  margin: 0;
+}
+
+body {
+  background-color: #efefef;
+}
+
+a {
+  text-decoration: none;
+  color: $color-black;
+}
+
+.container {
+  max-width: 1112px;
+  margin: 0 auto;
+  background-color: $color-white;
+
+  .content {
+    padding: 0 24px;
+    min-height: 50vh;
+    margin-bottom: 42px;
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 886px) {
+  .container .content {
+    padding: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .menu ul {
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  a,
+  p {
+    font-size: 12px !important;
+  }
+}

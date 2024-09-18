@@ -1,0 +1,27 @@
+---
+import BuyTicket from "./buyTicket/index.astro";
+import Payment from "./payment/index.astro";
+import AboutUs from "./about-us/index.astro";
+import Question from "./question/index.astro";
+import BookTicket from "../../components/BookTicket/index.astro";
+import FormSearch from "./form-search/index.astro";
+---
+
+<section class="home">
+  <div class="container_home">
+    <FormSearch />
+    <BookTicket />
+  </div>
+
+  <div class="container_home">
+    <BuyTicket class="container_home--buyTicket" />
+    <Payment />
+  </div>
+
+  <hr />
+
+  <div class="container_home">
+    <AboutUs />
+    <Question />
+  </div>
+</section>

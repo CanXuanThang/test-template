@@ -1,0 +1,73 @@
+---
+import SliderComponent from "@/components/Slider/index.astro";
+import { configApp } from "@/configs";
+import ImageComponent from "../ImageComponent/index.astro";
+
+const date = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit' })
+
+const flights = [
+  {
+    date: "Khách đặt vé khởi hành " + date,
+    address: "Hà Nội - Đà Nẵng",
+    price: "300,000 đ",
+    imageAir: configApp.urlLogoAirline + configApp.bamboo,
+    nameAir: "Bamboo Airways"
+  },
+  {
+    date: "Khách đặt vé khởi hành " + date,
+    address: "Hà Nội - TP.Hồ Chí Minh",
+    price: "568,000 đ",
+    imageAir: configApp.urlLogoAirline + configApp.vietname_airline,
+    nameAir: "Vietnam Airlines"
+  },
+  {
+    date: "Khách đặt vé khởi hành " + date,
+    address: "Tp.Hồ Chí Minh - Hải Phòng",
+    price: "489,000 đ",
+    imageAir: configApp.urlLogoAirline + configApp.vietjet,
+    nameAir: "VietjetAir"
+  },
+  {
+    date: "Khách đặt vé khởi hành " + date,
+    address: "Hà Nội - Nha Trang",
+    price: "426,000 đ",
+    imageAir: configApp.urlLogoAirline + configApp.vietravel,
+    nameAir: "Viet Travel"
+  }
+]
+
+---
+
+<section class="book-ticket">
+  <div>
+    <SliderComponent />
+
+    <p class="book-ticket__title">Vé máy bay giá rẻ khách đặt mới nhất</p>
+
+    {flights.map(item => <div class="book-ticker__info">
+      <div>
+        <div>
+          <p>{item.date}</p>
+        </div>
+        <div>
+          <p class="book-ticker__address">{item.address}</p>
+          <p class="book-ticker__price">{item.price}</p>
+        </div>
+      </div>
+      <div>
+        <ImageComponent
+          urlImage={item.imageAir}
+          alt="Bamboo Airways"
+          width={32}
+          height={16}
+        />
+
+        <p>{item.nameAir}</p>
+      </div>
+    </div>)}
+
+    <span class="book-ticket__description"
+      >* Giá cơ bản cho 1 người chưa bao gồm thuế phí</span
+    >
+  </div>
+</section>

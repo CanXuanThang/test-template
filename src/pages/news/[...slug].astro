@@ -1,0 +1,101 @@
+---
+import blogDetail from "../../configs/defaultData.json";
+import { isEmpty } from "@/common";
+import Layout from "@/layouts/Layout.astro";
+import { zoom } from "astro-vtbot/animations/zoom";
+import ImageComponent from "../../components/ImageComponent/index.astro";
+import { configApp } from "@/configs";
+
+export const prerender = false;
+const { slug } = Astro.params;
+const fetchData = async () => {
+  try {
+    const response = await fetch(`${configApp.urlAPIDetailNew}${slug}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        productKey: configApp.productKey,
+      },
+    });
+    let data = await response.json();
+    if (isEmpty(data?.data)) {
+      data = blogDetail.find((item) => item.postName == slug);
+      return data;
+    }
+    return data.data;
+  } catch (error) {
+    let data = blogDetail.find((item) => item.postName == slug);
+    return data;
+  }
+};
+
+let newDetailAPI = await fetchData();
+if (isEmpty(newDetailAPI)) return Astro.redirect("/404");
+const listTag =
+  (!isEmpty(newDetailAPI?.tags) && newDetailAPI?.tags?.split(", ")) || [];
+---
+
+<title>{newDetailAPI.title}</title>
+<meta slot="head" name="description" content={newDetailAPI.shortContent} />
+<meta slot="head" name="keywords" content={listTag.join(", ")} />
+<meta slot="head" property="og:title" content={newDetailAPI.title} />
+<meta
+  slot="head"
+  property="og:description"
+  content={newDetailAPI.shortContent}
+/>
+<meta slot="head" property="og:type" content="article" />
+<meta slot="head" property="og:url" content={Astro.url.pathname} />
+<meta property="og:image" content={newDetailAPI.imageURL} />
+
+<Layout title={newDetailAPI.title}>
+  <div class="news-detail" transition:animate={zoom({ duration: "0.5s" })}>
+    <div class="container">
+      <div class="post-detail">
+        <div class="content-post">
+          <p class="content-post-title">
+            {newDetailAPI.title}
+          </p>
+          <p class="content-post-created-at">
+            Đăng ngày: {newDetailAPI.createDate}
+          </p>
+
+          <div class="content-post-thumb">
+            <ImageComponent
+              urlImage={newDetailAPI?.imageURL}
+              alt={`img-${newDetailAPI?.imageURL}`}
+              width={300}
+              height={300}
+            />
+          </div>
+
+          <div
+            class="content-post-render"
+            set:html={newDetailAPI.fullContent}
+          />
+
+          <div class="content-post-tags">
+            {
+              !isEmpty(listTag) ? (
+                <ul class="content-post-tags-ul">
+                  {listTag.map((item: unknown) => (
+                    <li class="content-post-tags-ul-li">
+                      <a
+                        href={`/news-by-tag?tag=${item}`}
+                        class="content-post-tags-ul-li-a"
+                      >
+                        {item}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <div />
+              )
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

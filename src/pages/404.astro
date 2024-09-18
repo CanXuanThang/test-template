@@ -1,0 +1,25 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import imageNotFound from "../asset/images/errorImage.png";
+---
+
+<Layout title="404">
+    <div class="container">
+      <div class="page-404">
+        <img
+          width={570}
+          height={400}
+          src={imageNotFound.src}
+          alt={"404: Not Found"}
+          class="page-404-img"
+        />
+      </div>
+      <div class="button-back">
+        <button class="button-back-item"
+          ><a href="/" data-astro-reload class="button-back-item-href"
+            >Quay về trang chủ</a
+          ></button
+        >
+      </div>
+    </div>
+  </Layout>

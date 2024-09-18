@@ -1,0 +1,31 @@
+---
+import { configApp } from "@/configs";
+import Layout from "@/layouts/Layout.astro";
+import { DropletIcon } from "astro-feather";
+import FormContact from './FormContact.astro'
+---
+
+<Layout title="Liên hệ">
+  <main class="contact">
+    <h6>{configApp.company_name}</h6>
+
+    <hr />
+
+    <div class="contact-info">
+      {
+        configApp.company_office_address.map(item => <div>
+          <p>{item.name}</p>
+          <div>
+            <DropletIcon />
+            <p>{item.address}</p>
+          </div>
+          <p>Hotline: {item.hostline}</p>
+          <p>Email: {item.email}</p>
+        </div>)
+      }
+    </div>
+    <hr />
+
+    <FormContact />
+  </main>
+</Layout>

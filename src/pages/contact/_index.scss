@@ -1,0 +1,66 @@
+@import "./_FormContact.scss";
+
+.contact {
+  margin: 24px 0;
+  padding: 0 8px;
+
+  h6 {
+    font-size: 22px;
+    text-transform: uppercase;
+  }
+
+  .contact-info {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 12px 0;
+
+    hr {
+      border-top: 1px dashed $color-white;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      p:nth-child(1) {
+        font-weight: 500;
+      }
+      div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    svg {
+      rotate: 180deg;
+      color: $color-error;
+      width: 14px;
+      height: 14px;
+    }
+
+    .contact-phone {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      p {
+        font-weight: normal !important;
+      }
+    }
+  }
+
+  @include responsive("lg") {
+    .contact-info {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  @media (max-width: 576px) {
+    h6 {
+      font-size: 18px !important;
+    }
+  }
+}

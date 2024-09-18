@@ -1,0 +1,34 @@
+<section class="form-search">
+  <div class="about-information">
+    <div class="form-search-block">
+      <div class="form-search-block-header">
+        <p>Tìm kiếm chuyến bay</p>
+      </div>
+      <div class="form-search-block-content" id="EmbeddedSearchForm"></div>
+    </div>
+  </div>
+
+  <script is:inline>
+    var embeddedHost = 'https://embedded.vnisc.com.vn';
+    var embeddedKey = '12Gdn*n68Ar!z+Ma';
+    var urlResult = '/result';
+    var embeddedType = 'horizontal';
+    (function () {
+      const script = document.createElement('script');
+      script.src = embeddedHost + '/Resources/Main/Embedded.js';
+      script.async = true;
+      document.body.appendChild(script);
+    })();
+
+    window.addEventListener('popstate', (event) => {
+      if (window.location.pathname === '/'){
+        (function () {
+          const script = document.createElement('script');
+          script.src = embeddedHost + '/Resources/Main/Embedded.js';
+          script.async = true;
+          document.body.appendChild(script);
+        })();
+      }
+    });
+  </script>
+</section>

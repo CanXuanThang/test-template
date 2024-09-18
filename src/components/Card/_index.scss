@@ -1,0 +1,127 @@
+.news-card {
+    display: flex;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+    gap: 15px;
+  
+    padding: 15px 10px;
+    &-image {
+      width: 60%;
+      max-height: 150px;
+      height: 100%;
+      margin: auto;
+      padding-right: 15px;
+  
+      a {
+        word-wrap: break-word;
+  
+        img {
+          width: 100%;
+          max-width: 266px;
+          max-height: 120px;
+        }
+      }
+    }
+  
+    &-detail {
+      display: flex;
+      flex-direction: column;
+      width: 60%;
+  
+      &-block {
+        position: relative;
+        &-title {
+          text-decoration: none;
+          text-transform: uppercase;
+          font-weight: 500;
+          line-height: 1.4;
+  
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+  
+        // &-tooltiptext {
+        //   visibility: hidden;
+        //   width: 60%;
+        //   background-color: $background-color;
+        //   color: $color-font;
+        //   text-align: center;
+        //   border-radius: 6px;
+        //   padding: 5px;
+        //   font-size: 10px;
+  
+        //   /* Position the tooltip */
+        //   position: absolute;
+        //   z-index: 10;
+  
+        //   left: 90%;
+        // }
+      }
+      // .news-card-detail-block:hover .news-card-detail-block-tooltiptext {
+      //   visibility: visible;
+      // }
+  
+      &-description {
+        margin: 0.6rem 0 0 0;
+        word-break: break-word;
+        text-align: justify;
+      }
+  
+      .text-end {
+        margin-top: auto;
+        text-align: end;
+      }
+  
+      &-link {
+        color: #000;
+        line-height: 1.4;
+        font-size: 15px;
+        word-break: break-word;
+        font-style: italic;
+        text-decoration: underline;
+        font-weight: normal;
+        text-align: end;
+        &:hover {
+          color: $color-white;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  
+  //Breakpoint image card new
+  @mixin responsive-image($max-width, $img-width, $img-height) {
+    @media screen and (max-width: $max-width) {
+      .news-card {
+        &-image {
+          a {
+            img {
+              max-width: $img-width;
+              max-height: $img-height;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  @media screen and (min-width: 621px) and (max-width: 768px) {
+    .news-card {
+      &-detail {
+        width: 70%;
+      }
+    }
+  }
+  
+  @include responsive-image(1019px, 250px, 150px);
+  @include responsive-image(768px, 250px, 150px);
+  @include responsive-image(620px, 210px, 120px);
+  @include responsive-image(510px, 230px, 110px);
+  @include responsive-image(450px, 180px, 100px);
+  @include responsive-image(385px, 160px, 120px);
+  @include responsive-image(350px, 130px, 130px);
+  //End breakpoint image card new
+  

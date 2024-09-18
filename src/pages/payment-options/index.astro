@@ -1,0 +1,76 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import ImageComponent from "../../components/ImageComponent/index.astro";
+import { configApp } from "@/configs";
+
+const paymenyOptions = [
+  {
+    image: configApp.urlImage + configApp.image_VietComBank,
+    nameOwner: "CÔNG TY TNHH DV DL NGÔI NHÀ PHƯƠNG NAM",
+    numberBanking: "68 68 78 9999",
+    branch: "Vietcombank TÂN SƠN NHẤT",
+  },
+  {
+    image: configApp.urlImage + configApp.image_VPBank,
+    nameOwner: "CÔNG TY TNHH DV DL NGÔI NHÀ PHƯƠNG NAM",
+    numberBanking: "0017100024529008",
+    branch: "VPBank – Hà Nội",
+  },
+  {
+    image: configApp.urlImage + configApp.image_HDBank,
+    nameOwner: "CÔNG TY TNHH DV DL NGÔI NHÀ PHƯƠNG NAM",
+    numberBanking: "068704070155990",
+    branch: "HDBANK – TTKD – Gò Vấp",
+  },
+  {
+    image: configApp.urlImage + configApp.image_TechComBank,
+    nameOwner: "CÔNG TY TNHH DV DL NGÔI NHÀ PHƯƠNG NAM",
+    numberBanking: "6868 9999 7878",
+    branch: "TechComBank – Hà Nội",
+  },
+];
+---
+
+<Layout title="Phương thức thanh toán">
+  <div class="payment-options">
+    <h6>Phương thức thanh toán</h6>
+
+    <div class="payment-option__item">
+      {
+        paymenyOptions.map((item) => (
+          <div>
+            <ImageComponent
+              urlImage={item.image}
+              width={80}
+              height={80}
+              alt="Phương thức thanh toán"
+            />
+
+            <div>
+              <div class="payment-option__item--content-banking">
+                <p>Chủ tài khoản:</p>
+                <p>
+                  <strong>{item.nameOwner}</strong>
+                </p>
+              </div>
+
+              <div class="payment-option__item--content-banking">
+                <p>Số tài khoản:</p>
+                <p>
+                  <strong>{item.numberBanking}</strong>
+                </p>
+              </div>
+
+              <div class="payment-option__item--content-banking">
+                <p>Chi nhánh:</p>
+                <p>
+                  <strong>{item.branch}</strong>
+                </p>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Layout>

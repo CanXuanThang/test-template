@@ -1,0 +1,61 @@
+---
+import { configApp } from "@/configs";
+import { MessageSquareIcon } from "astro-feather";
+
+const messages = [
+  {
+    message:
+      `Tôi thấy dịch vụ của ${configApp.company_name} tất tốt, nhanh gọn, nhân viên nhiệt tình và dễ mến`,
+    name: "Nguyễn Bá Cường",
+    phone: "0123456789",
+  },
+  {
+    message:
+      "Lần đầu tiên mò mẫm tìm kiếm mua vé trên mạng. Nói chung đội ngũ nhân viên rất nhiệt tình.",
+    name: "Đặng Thu Hà",
+    phone: "0945376789",
+  },
+  {
+    message:
+      "Rất cám ơn các bạn đã cho tôi một địa chỉ tin cậy để giao dịch.",
+    name: "Nguyễn Văn Sơn",
+    phone: "0947576789",
+  },
+  {
+    message:
+      "Mình cần mua vé máy bay gấp, lên mạng seach, đặt mua cái là có vé , thích thật :X",
+    name: "Phan Ngọc Huyền",
+    phone: "0384676789",
+  },
+  {
+    message:
+      `Rất hài lòng với dịch vụ của cty. Cám ơn nhân viên ${configApp.company_name} đã tư vấn nhiệt tình cho tôi.`,
+    name: "Nguyễn Thị Ngọc",
+    phone: "0846756789",
+  },
+];
+---
+
+<section class="aboutUs-container">
+  <div class="aboutUs">
+    <h3 class="title-buyTicket">Khách hàng nói về chúng tôi</h3>
+
+    <div class="aboutUs-list">
+      {
+        messages.map((item) => (
+          <div class="aboutUs-item">
+            <MessageSquareIcon />
+
+            <div class="aboutUs-item__message">
+              <p>{item.message}</p>
+
+              <div>
+                <p>{item.name} - {item.phone.slice(0,6)}xxxx</p>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,92 @@
+---
+import { DropletIcon, GlobeIcon, MailIcon, PhoneCallIcon } from 'astro-feather';
+import ImageComponent from '../../components/ImageComponent/index.astro';
+import { configApp } from '@/configs';
+---
+
+<footer>
+  <div class="container">
+    <div class={`container-info ${configApp.isCertification ? "col-4" : "col-3"}`}>
+      <div>
+        <p>{configApp.company_name}</p>
+
+        <p class="description-company">{configApp.company_description}</p>
+      </div>
+
+      <div>
+        <p>Liên hệ</p>
+
+        <hr />
+
+        <ul>
+          <li>
+            <div>
+              <DropletIcon />
+              <a href={configApp.company_addess_map}
+                >{configApp.company_addess}</a
+              >
+            </div>
+          </li>
+
+          <li>
+            <div>
+              <PhoneCallIcon />
+              <a href=`tel:${configApp.hotline_1}`
+                >Tel: {configApp.hotline_1} - {configApp.hotline_2}</a
+              >
+            </div>
+          </li>
+
+          <li>
+            <div>
+              <MailIcon />
+              <a href=`mailto:${configApp.email}`>{configApp.email}</a>
+            </div>
+          </li>
+
+          <li>
+            <div>
+              <GlobeIcon />
+              <a href={configApp.website} data-astro-reload
+                >{configApp.website}</a
+              >
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <p>Thông tin</p>
+
+        <hr />
+
+        <ul>
+          <li>
+            <a href="/introduce">Giới thiệu</a>
+          </li>
+
+          <li>
+            <a href="/payment-options">Hướng dẫn thanh toán</a>
+          </li>
+
+          <li>
+            <a href="/contact">Liên hệ</a>
+          </li>
+        </ul>
+      </div>
+
+      {
+        configApp.isCertification && (
+          <div class="container-info__logo">
+            <ImageComponent
+              urlImage={configApp.urlImage + configApp.image_boCongThuong}
+              alt="Bộ công thương"
+              width={172}
+              height={60}
+            />
+          </div>
+        )
+      }
+    </div>
+  </div>
+</footer>

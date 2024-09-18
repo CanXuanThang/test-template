@@ -1,0 +1,67 @@
+---
+import { SmartphoneIcon } from "astro-feather";
+import { configApp } from "../../../configs";
+import IconFacebook from "@/asset/icons/IconFacebook.astro";
+import IconZalo from "@/asset/icons/IconZalo.astro";
+import IconPhone from "@/asset/icons/IconPhone.astro";
+---
+
+<section>
+  <h1 class="title-buyTicket">Các hình thức mua vé máy bay giá rẻ</h1>
+
+  <hr />
+
+  <div>
+    <ul>
+      <li>
+        <p>1. <strong>Trực tiếp lên website, nhanh nhất - tiện nhất</strong></p>
+      </li>
+
+      <li>
+        <p>2. <strong>Qua chat</strong></p>
+
+        <div class="buy-ticket-item">
+          <a href={configApp.link_facebook_chat}>
+            <IconFacebook />
+          </a>
+
+          <a href={configApp.link_zalo_chat}>
+            <IconZalo />
+          </a>
+
+          <a href={configApp.hotline_1}>
+            <IconPhone />
+          </a>
+        </div>
+      </li>
+
+      <li>
+        <p>
+          3. <strong>Gọi điện thoại cho {configApp.company_name}</strong>
+        </p>
+
+        <div class="buy-ticket-call">
+          <SmartphoneIcon />
+          <p>Tổng đài: <b>{configApp.hotline_1}</b></p>
+        </div>
+      </li>
+
+      <li>
+        <p>
+          4. <strong>Đến trực tiếp văn phòng {configApp.company_name}</strong>
+        </p>
+
+        <div class="buy-ticket-address">
+          {
+            configApp.company_office_address.map((item) => (
+              <div>
+                <p>{item.name}</p>
+                <p>{item.address}</p>
+              </div>
+            ))
+          }
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>

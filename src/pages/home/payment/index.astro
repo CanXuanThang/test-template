@@ -1,0 +1,64 @@
+---
+import { configApp } from "@/configs";
+
+type TPayment = {
+  icon: string;
+  title: string;
+  description: string;
+  img?: string;
+};
+
+const paymentTypes: TPayment[] = [
+  {
+    icon: configApp.urlImage + configApp.image_ticketOfOffice,
+    title: "Thanh toán bằng tiền mặt tại văn phòng " + configApp.company_name,
+    description:
+      "Sau khi đặt hàng thành công, Quý khách vui lòng qua văn phòng "+ configApp.company_name + " để thanh toán và nhận vé.",
+  },
+  {
+    icon: configApp.urlImage + configApp.image_homeIcon,
+    title: "Thanh toán tại nhà",
+    description:
+      "Nhân viên " + configApp.company_name + " sẽ giao vé & thu tiền tại nhà theo địa chỉ Quý khách cung cấp.",
+  },
+  {
+    icon: configApp.urlImage + configApp.image_serviceVisa,
+    title: "Thanh toán qua cổng thanh toán điện tử",
+    description:
+      "Quý khách có thể thanh toán trực tuyến qua ngân hàng",
+  },
+  {
+    icon: configApp.urlImage + configApp.image_banking,
+    title: "Thanh toán qua chuyển khoản",
+    description:
+      "Quý khách có thể thanh toán bằng cách chuyển khoản trực tiếp tại ngân hàng, qua thẻ ATM, hoặc qua Internet banking.",
+  },
+];
+---
+
+<section>
+  <h2 class="title-buyTicket">Các hình thức thanh toán</h2>
+
+  <hr />
+
+  <ul class="payment">
+    {
+      paymentTypes.map((item, index) => (
+        <>
+          <li>
+            <img src={item.icon} alt={item.title} />
+
+            <div>
+              <div>
+                <b>{item.title}</b>
+                <br />
+                <p>{item.description}</p>
+              </div>
+            </div>
+          </li>
+          {index < paymentTypes.length - 1 && <hr />}
+        </>
+      ))
+    }
+  </ul>
+</section>

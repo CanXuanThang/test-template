@@ -1,0 +1,36 @@
+---
+import ImageComponent from '../ImageComponent/index.astro'
+
+const { dataNews } = Astro.props;
+---
+
+{
+  dataNews ? (
+    <div class="news-card">
+      <div class="news-card-image">
+        <a href={`/news/${dataNews.postName}`}>
+          {" "}
+          <ImageComponent
+            urlImage={`${dataNews.imageURL}`}
+            width={540}
+            height={440}
+            alt={`img-${dataNews.postName}`}
+          />
+        </a>
+      </div>
+      <div class="news-card-detail">
+        <div class="news-card-detail-block">
+          <a
+            href={`/news/${dataNews.postName}`}
+            class="news-card-detail-block-title"
+          >
+            {dataNews.title}
+          </a>
+        </div>
+        <p class="news-card-detail-description">{dataNews.createDate}</p>
+      </div>
+    </div>
+  ) : (
+    <div />
+  )
+}

@@ -1,0 +1,55 @@
+section {
+  flex: 1;
+  padding: 12px 24px;
+
+  hr {
+    border-top: 1px dashed $color-border;
+  }
+}
+
+.payment {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  & > li:nth-child(1) {
+    padding-top: 8px;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+
+    & > img {
+      width: 40px;
+      height: 40px;
+    }
+
+    div {
+      b {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 12px;
+      }
+
+      p {
+        line-height: 17px;
+        font-size: 12px;
+      }
+    }
+  }
+
+  hr {
+    border-top: 1px dashed $color-border;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 815px) {
+  section {
+    padding: 12px 0;
+  }
+}

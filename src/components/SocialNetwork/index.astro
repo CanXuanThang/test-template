@@ -1,0 +1,27 @@
+---
+import IconFacebook from "@/asset/icons/IconFacebook.astro";
+import IconPhone from "@/asset/icons/IconPhone.astro";
+import IconZalo from "@/asset/icons/IconZalo.astro";
+import {configApp} from "@/configs";
+
+const currentUrl = new URL(Astro.request.url);
+const currentPath = currentUrl.pathname;
+---
+
+{
+  currentPath.includes("/result") ? null : (
+    <main class="container_social" >
+      <a href={configApp.link_facebook_chat} target="_blank">
+        <IconFacebook />
+      </a>
+
+      <a href={configApp.link_zalo_chat} target="_blank">
+        <IconZalo />
+      </a>
+
+      <a href={`tel:${configApp.hotline_1}`}>
+        <IconPhone />
+      </a>
+    </main>
+  )
+}

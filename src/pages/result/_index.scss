@@ -1,0 +1,13 @@
+.flight-result-container {
+    padding: 0;
+    .root-main {
+        padding: 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .root-main {
+        padding: 12px 0;
+    }
+}
+  

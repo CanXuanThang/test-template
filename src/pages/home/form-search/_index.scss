@@ -1,0 +1,103 @@
+.form-search {
+  .about-information {
+    height: 100%;
+    border-radius: 8px;
+    background: linear-gradient($bg-color-1, $bg-color-2);
+
+    .form-search-block {
+      display: flex;
+      flex-direction: column;
+
+      .form-search-block-content {
+        margin-top: 18px;
+        align-items: center;
+        display: flex;
+
+        .search-form {
+          width: 100%;
+        }
+      }
+    }
+
+    .form-search-block-header {
+      background-image: url(https://embedded.vnisc.com.vn/Resources/images/iconPlan.png);
+      background-position: 10px center;
+      background-repeat: no-repeat;
+      background-size: 22px;
+      border-radius: 3px 3px 0 0;
+      padding: 20px 12px;
+      text-align: left;
+      border-bottom: 1px solid $color-border;
+
+      p {
+        color: $color-white;
+        margin-bottom: 0;
+        font-size: 16px;
+        padding-left: 30px;
+        text-align: left;
+        text-transform: uppercase;
+      }
+    }
+
+    .css-9zy5vb-control {
+      min-height: 36px;
+    }
+
+    .select-location-mobile {
+      min-height: 36px;
+    }
+
+    .custom-calender-value {
+      min-height: 36px;
+    }
+
+    .label-select {
+      color: $color-white;
+    }
+
+    .button-form-schedule {
+      background: $color-btn;
+    }
+
+    .custom-calender-value {
+      background: $color-white;
+    }
+
+    .select-location-mobile {
+      background: $color-white;
+    }
+
+    .errors-validate {
+      color: $color-validate;
+    }
+  }
+}
+
+@media (min-width: 1023px) {
+  .grid-passenger-horizontal {
+    grid-template-columns: 1fr !important;
+  }
+
+  .time-travel-from-custom-date-picker .custom-calender-value,
+  .time-travel-to-custom-date-picker .custom-calender-value {
+    padding: 8px 10px !important;
+  }
+}
+
+.location-and-time-horizontal {
+  grid-template-columns: 29% 29% 19% 19% !important;
+}
+
+.location-and-time-horizontal {
+  grid-template-columns: repeat(2, 1fr) !important;
+}
+
+@media (max-width: 992px) {
+  .form-search .about-information .form-search-block .form-search-block-content {
+    margin-top: 0;
+  }
+
+  .form-search .about-information .form-search-block-header {
+    padding: 12px;
+  }
+}

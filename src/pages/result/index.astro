@@ -1,0 +1,38 @@
+---
+import "../../asset/styles/_index.scss";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="Tìm kiếm">
+  <section class="flight-result-container">
+    <div id="EmbeddedSearchResult"></div>
+  </section>
+</Layout>
+
+<script>
+  import { isEmpty } from "@/common";
+
+  const url = new URL(window.location.href);
+  const params = new URLSearchParams(url.search);
+  const dep = params.get("dep");
+  const ret = params.get("ret");
+  const dt = params.get("dt");
+  const ps = params.get("ps");
+
+  if (isEmpty(dep) || isEmpty(ret) || isEmpty(dt) || isEmpty(ps)) {
+    window.location.href = "/404";
+  }
+</script>
+
+<script is:inline>
+  var embeddedHost = "https://embedded.vnisc.com.vn";
+  var embeddedKey = "12Gdn*n68Ar!z+Ma";
+  var urlResult = "/result";
+  var embeddedType = "horizontal";
+  (function () {
+    const script = document.createElement("script");
+    script.src = embeddedHost + "/Resources/Main/Embedded.js";
+    script.async = true;
+    document.body.appendChild(script);
+  })();
+</script>

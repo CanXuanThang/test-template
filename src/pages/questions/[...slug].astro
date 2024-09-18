@@ -1,0 +1,19 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import questions from "../../configs/questions.json"
+import { convertStringtoUrl } from "@/common";
+
+export const prerender = false;
+
+const {slug} = Astro.params
+
+const title = questions.filter(question => convertStringtoUrl(question.name) === "/" + slug)
+---
+
+<Layout title={title[0].name}>
+    <div class="question-detail">
+        <h6>{title[0].name}</h6>
+
+        <div set:html={title[0].fullDescription ? title[0].fullDescription : title[0].shortDescription} />
+    </div>
+</Layout>

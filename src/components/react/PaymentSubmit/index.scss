@@ -1,0 +1,89 @@
+.atm-card {
+  div {
+    input {
+      padding: 12px;
+      border: 1px solid $color-border;
+      width: 100%;
+      border-radius: 8px;
+    }
+  }
+}
+.atm-card__list {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr);
+  place-items: center;
+
+  img {
+    padding: 12px;
+    border: 1px solid $color-border;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .active-bank {
+    border: 1px solid #0084ff;
+  }
+}
+
+.contact-form__button {
+  border: 1px;
+  border-radius: 12px;
+  background: $color-btn;
+  height: 42px;
+  min-width: 120px;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 24px;
+}
+
+.disable {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+
+  div {
+    div {
+      flex-direction: column !important;
+    }
+  }
+
+  .container-button {
+    flex-direction: row !important;
+    justify-content: flex-end;
+
+    .button-form__back {
+      border: 1px;
+      border-radius: 12px;
+      background: #fff;
+      height: 42px;
+      min-width: 120px;
+      color: #000;
+      cursor: pointer;
+      margin-top: 24px;
+      border: 1px solid $color-border;
+    }
+
+    .button-form__continue {
+      border: 1px;
+      border-radius: 12px;
+      background: $color-btn;
+      height: 42px;
+      min-width: 120px;
+      color: #fff;
+      cursor: pointer;
+      margin-top: 24px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+    .atm-card__list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

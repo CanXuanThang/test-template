@@ -1,0 +1,64 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { configApp } from '@/configs'
+---
+
+<Layout title="Giới thiệu">
+  <main class="introduce">
+    <h6>Lời giới thiệu về {configApp.company_name}</h6>
+
+    <div set:html={configApp.company_introduce} />
+
+    <p class="introduce-title">Hệ thống của chúng tôi</p>
+
+    <div class="introduce-system">
+      <p>
+        {configApp.company_name} là website Đặt Vé Máy Bay Trực Tuyến. Được thiết
+        kế với giao diện thân thiện, dễ sử dụng. {configApp.company_name} thực hiện
+        các chức năng sau:
+      </p>
+
+      <div>
+        <p>
+          <strong
+            >1. Tìm kiếm hành trình bay theo yêu cầu của khách hàng (chặng bay,
+            ngày bay, giờ bay, giá vé)</strong
+          >
+        </p>
+
+        <p>
+          <strong>2. Đặt vé máy bay nội địa và quốc tế tự động</strong>
+        </p>
+
+        <p>
+          <strong
+            >3. Tính năng sắp xếp các chuyến bay theo mức giá vé rẻ nhất và thời gian bay sớm nhất. Điều này giúp dễ dàng tìm được chuyến bay phù hợp với nhu cầu và ngân sách của khách hàng.</strong
+          >
+        </p>
+
+        <p>
+          <strong
+            >4. So sánh giá vé của 4 hãng hàng không nội địa (Vietravel
+            Airlines, VietJet Air, Bamboo Airways, Vietnam Airlines)</strong
+          >
+        </p>
+      </div>
+
+      <p>
+        Website còn có phiên bản dành cho các thiết bị di động (mobile, tablet,
+        laptop) giúp khách hàng có thể đặt vé máy bay nhanh chóng mọi lúc, mọi
+        nơi khi muốn.
+      </p>
+    </div>
+
+    <p class="introduce-title">Đối tác của chúng tôi</p>
+
+    <p>
+      Trong tương lai, ngoài mảng vé máy bay, {configApp.company_name} có kế hoạch
+      mở rộng ra lĩnh vực đặt tour du lịch, du thuyền, khách sạn….Vì vậy {
+        configApp.company_name
+      } luôn mong muốn có cơ hội hợp tác với các doanh nghiệp quan tâm và có nhu
+      cầu hợp tác cùng {configApp.company_name} trong các lĩnh vực trên.
+    </p>
+  </main>
+</Layout>

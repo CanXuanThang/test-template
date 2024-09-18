@@ -1,0 +1,17 @@
+---
+import { ArrowRightCircleIcon } from "astro-feather";
+import AnswerAQuestion from "../../../components/react/AnswerAQuestion/index.tsx";
+import questions from "../../../configs/questions.json";
+---
+
+<section>
+  <div class="question">
+    <h4 class="title-buyTicket question-title">Câu hỏi thường gặp</h4>
+
+    <AnswerAQuestion data={questions} client:load />
+
+    <a href="/questions" class="question-btn"
+      ><p>Xem chi tiết</p> <ArrowRightCircleIcon /></a
+    >
+  </div>
+</section>

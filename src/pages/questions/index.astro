@@ -1,0 +1,27 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import questions from "../../configs/questions.json";
+import { convertStringtoUrl } from "@/common";
+
+export const prerender = false;
+---
+
+<Layout title="Câu hỏi thường gặp">
+  <div class="question-page">
+    <h6>Câu hỏi thường gặp</h6>
+
+    <ul>
+      {
+        questions.map((question) => {
+          const url = convertStringtoUrl(question.name);
+
+          return (
+            <li>
+              <a href={"/questions" + url}>›› {question.name}</a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</Layout>

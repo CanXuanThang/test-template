@@ -1,0 +1,50 @@
+.aboutUs-container {
+  .aboutUs {
+    min-height: 536px;
+    padding: 12px 24px;
+    background-color: #fafad2;
+    border-radius: 8px;
+
+    h3 {
+      margin: 0;
+    }
+
+    a {
+      font-weight: 700;
+    }
+
+    .aboutUs-list {
+      display: flex;
+      gap: 12px;
+      flex-direction: column;
+      margin-top: 20px;
+
+      .aboutUs-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        svg {
+          width: 42px;
+          height: 42px;
+        }
+
+        .aboutUs-item__message {
+          flex: 1;
+          div {
+            display: flex;
+
+            p {
+              color: #9c9c9c;
+            }
+          }
+        }
+
+        p {
+          font-size: 14px;
+          font-style: italic;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import dataDefault from "../../configs/defaultData.json"
+import { configApp } from "@/configs";
+import { isEmpty } from "@/common";
+import Card from "../../components/Card/index.astro"
+
+export const prerender = false;
+const newsDefault = dataDefault;
+const fetchData = async () => {
+  try {
+    const response = await fetch(`${configApp.urlAPINews}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        productKey: configApp.productKey,
+      },
+    });
+    const data = await response.json();
+    if (isEmpty(data?.data)) {
+      return [];
+    }
+    return data.data;
+  } catch (error) {}
+};
+
+const response = await fetchData();
+const newList = [...response, ...newsDefault];
+---
+
+<Layout title="Tin tức">
+  <section class="news-page">
+    <h6 class="news-page-title title-page">Tin tức mới nhất</h6>
+    <div class="container">
+      <div class="block-news">
+        <div class="grid-news-pages">
+          {
+            newList?.map((item, index) => (
+              <Card key={index} dataNews={item} />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,22 @@
+.question {
+  overflow: hidden;
+  height: 536px;
+  border: 1px solid $color-border;
+  padding: 12px 24px;
+  border-radius: 8px;
+  background: #f5f5f5;
+
+  .question-btn {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 12px;
+    gap: 4px;
+    font-size: 14px;
+    align-items: center;
+    text-decoration: underline;
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
