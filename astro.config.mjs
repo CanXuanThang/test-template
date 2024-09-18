@@ -4,6 +4,7 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 
 import vercel from "@astrojs/vercel/serverless";
+import partytown from '@astrojs/partytown'
 
 export default defineConfig({
   site: 'http://demo2.vnisc.com.vn',
@@ -11,7 +12,12 @@ export default defineConfig({
     react({
       include: ["**/react/*"],
     }),
-    sitemap()
+    sitemap(),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
+  })
   ],
   output: "server",
   adapter: vercel(),
